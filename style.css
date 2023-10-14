@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+* {
+  --bgcolor: #dfdfdf;
+  --green1: #78a663;
+  --green2: #5e8c5d;
+  --green3: #214029;
+  --green4: #132623;
+  --blue: #131b26;
+  --contra: #ffc965;
+  --contra2: #ffdc99;
+  --Text1: #e8c31a;
+
+  --color-1-hex: #0d448c;
+  --color-2-hex: #0b2d59;
+  --color-3-hex: #021328;
+  --color-6-hex: #1e283993;
+  --color-bg: #3535355f;
+  --color-save: #3535357d;
+  --color-4-hex: #2594d9;
+  --color-5-hex: #49c2f2;
+
+  /* Color Theme Swatches in RGBA */
+  --color-1-rgba: rgba(12, 67, 140, 1);
+  --color-2-rgba: rgba(10, 44, 89, 1);
+  --color-3-rgba: rgba(6, 20, 38, 1);
+  --color-4-rgba: rgba(36, 147, 216, 1);
+  --color-5-rgba: rgba(72, 194, 242, 1);
+
+  /* Color Theme Swatches in HSLA */
+  --color-1-hsla: hsla(213, 83, 29, 1);
+  --color-2-hsla: hsla(213, 78, 19, 1);
+  --color-3-hsla: hsla(213, 72, 8, 1);
+  --color-4-hsla: hsla(202, 70, 49, 1);
+  --color-5-hsla: hsla(196, 86, 61, 1);
+  box-sizing: border-box !important;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bg-img {
+  width: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#main-app {
+  height: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background-repeat: no-repeat;
+  background: var(--color-3-hex);
+  background: url(https://cdn.leonardo.ai/users/53577f72-dec4-41e0-b643-8c4b9b2ad2ce/generations/d0a31797-7346-4b82-b9ee-9ffdce793d0e/DreamShaper_v7_blue_theme_pencil_3d_background_minimal_mode_0.jpg);
+  background-size: cover;
+}
+
+#auth-section {
+  height: 100%;
+  background: #00000030;
+  backdrop-filter: blur(2px);
+  display: flex;
+  /* display: none; */
+  top: 0;
+  right: 0;
+  transition: none !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#auth-section .greeting {
+  font-family: "Passion One", cursive;
+  color: var(--bgcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: none !important;
+}
+
+.greeting .greet {
+  font-size: 15rem;
+  letter-spacing: 0.3rem;
+}
+
+.greeting .greet-signup-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
