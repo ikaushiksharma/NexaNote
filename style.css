@@ -760,11 +760,13 @@ button:hover {
   border: none;
   padding: 0.5rem;
   padding-left: 0;
+  /* border-radius: 0.3rem; */
   outline: none;
   color: white;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--Text1);
+  /* padding-left: 0.4rem; */
 }
 
 textarea {
@@ -794,6 +796,7 @@ textarea {
   display: flex;
   gap: 0.4rem;
   box-sizing: border-box;
+  /* height: 3rem; */
 }
 
 #categories .category-item {
@@ -815,6 +818,7 @@ textarea {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
+  /* justify-content: center; */
   flex-wrap: wrap;
   padding: 1rem;
   overflow: scroll;
@@ -915,4 +919,497 @@ textarea {
   padding: 0.2rem;
   background: #021328;
   border: 1px solid var(--color-1-hex);
+}
+
+.drop-button {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+  background-color: #eee;
+}
+
+@media (min-width: 1024px) {
+  .menu:hover .dropdown {
+    display: block;
+  }
+}
+
+.desc {
+  color: white;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  line-height: 1rem;
+}
+
+.category-con {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.category {
+  font-size: 0.7rem;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.3rem;
+  background: #5e8c5d;
+  font-weight: 900;
+}
+
+.date-con {
+  display: flex;
+  font-size: 0.75rem;
+  gap: 0.5rem;
+}
+
+.date-con .timer {
+  color: rgba(255, 255, 255, 0.562);
+}
+
+.due-date {
+  color: white;
+}
+
+.avatar {
+  width: 1.7rem;
+  border: 1px solid white;
+  border-radius: 100%;
+}
+
+.user-con {
+  display: flex;
+  flex-grow: 1;
+  align-items: end;
+  justify-content: center;
+  width: 100%;
+}
+
+.state {
+  display: flex;
+  color: black;
+  font-size: 0.7rem;
+  align-self: self-end;
+  font-weight: bolder;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  gap: 0.4rem;
+}
+
+.user-wrapper {
+  width: 100%;
+  border-top: 1px solid var(--color-1-hex);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding-top: 0.7rem;
+}
+
+.userAvatarNameWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.login-user-name {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.close-panels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+}
+.delete-icon-button {
+  color: white;
+  display: none;
+}
+@media (min-width: 768px) {
+  .menu {
+    display: block;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .delete-icon-button {
+    color: white;
+    display: block;
+  }
+}
+@media (max-width: 1211px) and (min-width: 768px) {
+  .task-container {
+    width: 31%;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  #add-task-section {
+    width: 40%;
+  }
+
+  .navbar-ham {
+    font-size: 1.5rem;
+    color: var(--color-4-hex);
+  }
+
+  #sidebar {
+    position: absolute;
+    width: 30%;
+    background: var(--color-3-hex);
+    height: 100%;
+    z-index: 50;
+    transition: all ease-in-out 0.3s;
+    left: -100%;
+  }
+
+  .left {
+    left: 0 !important;
+  }
+
+  #sidebar .logo-name-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  #sidebar .logo-name-wrapper .logo-name {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  #sidebar .logo-name-wrapper .logo {
+    font-size: 1.2rem;
+  }
+
+  #sidebar .logo-name-wrapper .name-wrapper h1 {
+    font-size: 1.4rem;
+  }
+
+  .filter-tasks {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .filter-tasks .filters-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .filter-tasks .filter-type-wrapper {
+    display: flex;
+    position: relative;
+    justify-content: left;
+    align-items: center;
+    height: 2rem;
+    left: 0;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem;
+    padding-left: 0;
+    color: rgb(214, 214, 214);
+    transition: all ease-in-out 0.3s;
+    opacity: 0.6;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type i {
+    font-size: 1.2rem;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type h2 {
+    font-size: 1rem;
+  }
+
+  .filter-type-wrapper:hover .filter-type {
+    cursor: pointer;
+  }
+
+  #filter-task-add-wrapper {
+    width: 100%;
+  }
+
+  #filter-signout-wrapper {
+    font-size: 0.5rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+
+  .search-icon {
+    font-size: 0.8rem;
+  }
+
+  #filter-tasks-section {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.3rem;
+    border-radius: 0.4rem;
+    background: var(--color-2-hex);
+    border: 1px solid var(--color-1-hex);
+    flex-grow: 4;
+    box-sizing: border-box;
+  }
+
+  #task-list {
+  }
+}
+
+.sidebar-signout-addtask {
+  display: none;
+}
+
+.close-login {
+  display: none;
+}
+
+.close-login::before {
+  display: none;
+}
+
+@media (max-width: 768px) and (min-width: 300px) {
+  .greeting .greet {
+    font-size: 6rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .greet-signup-login {
+    scale: 0.7;
+  }
+
+  #signup-login {
+    width: 100%;
+    display: flex;
+    align-items: start;
+  }
+
+  .close-login {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    right: 1rem;
+  }
+
+  .close-login::before {
+    display: block;
+  }
+
+  #signup-login .form {
+    padding: 1.5rem;
+    padding-right: 1.5rem;
+    scale: 0.9;
+    margin-top: 4rem;
+  }
+
+  #signup-login .form input {
+    width: 100%;
+  }
+
+  #signup-login .login-char {
+    right: 0.5rem;
+    width: 80%;
+  }
+
+  #edit-task {
+    width: 100%;
+  }
+
+  #filter-task-add-wrapper {
+    width: 100%;
+    /* overflow: scroll; */
+  }
+
+  #filter-signout-wrapper #signout-wrapper {
+    display: none;
+  }
+
+  .navbar-ham {
+    font-size: 1.5rem;
+    color: var(--color-4-hex);
+  }
+
+  #sidebar {
+    position: absolute;
+    width: 60%;
+    background: var(--color-3-hex);
+    height: 100%;
+    z-index: 50;
+    transition: all ease-in-out 0.3s;
+    left: -100%;
+    justify-content: start;
+  }
+
+  #sidebar > * {
+    scale: 0.9;
+  }
+
+  .left {
+    left: 0 !important;
+  }
+
+  #sidebar .logo-name-wrapper {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-bottom: 1px solid var(--color-1-hex);
+  }
+
+  #sidebar .logo-name-wrapper .logo-name {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  #sidebar .logo-name-wrapper .logo {
+    font-size: 1.2rem;
+  }
+
+  #sidebar .logo-name-wrapper .name-wrapper h1 {
+    font-size: 1.4rem;
+  }
+
+  .filter-tasks {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-grow: 0;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-1-hex);
+  }
+
+  .filter-tasks .filters-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .filter-tasks .filter-type-wrapper {
+    display: flex;
+    position: relative;
+    justify-content: left;
+    align-items: center;
+    height: 2rem;
+    left: 0;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem;
+    padding-left: 0;
+    color: rgb(214, 214, 214);
+    transition: all ease-in-out 0.3s;
+    opacity: 0.6;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type i {
+    font-size: 1.2rem;
+  }
+
+  .filter-tasks .filters-wrapper .filter-type-wrapper .filter-type h2 {
+    font-size: 1rem;
+  }
+
+  .filter-type-wrapper:hover .filter-type {
+    cursor: pointer;
+  }
+
+  .sidebar-signout-addtask {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .sidebar-signout-addtask > * {
+    width: 80%;
+  }
+
+  #filter-task-add-wrapper {
+    width: 100%;
+  }
+
+  #filter-signout-wrapper {
+    padding: 2rem 0.5rem;
+    font-size: 0.5rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+
+  .search-icon {
+    font-size: 0.8rem;
+  }
+
+  #filter-signout-wrapper #search-date-wrapper {
+    width: 80%;
+    gap: 0.7rem;
+  }
+
+  .date-sort-wrapper {
+    justify-content: center;
+  }
+
+  #filter-tasks-section {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.3rem;
+    border-radius: 0.4rem;
+    background: var(--color-2-hex);
+    border: 1px solid var(--color-1-hex);
+    flex-grow: 4;
+    box-sizing: border-box;
+  }
+
+  #task-list {
+    justify-content: center;
+  }
+
+  #task-list::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }
