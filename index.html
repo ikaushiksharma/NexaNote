@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexaNote</title>
-    <link rel="stylesheet" href="./app.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg" href="./img/chart.svg">
 
     <script
@@ -43,6 +43,7 @@
             <button
               id="signup-login-button"
               class="button-style1"
+              onclick="signup()"
             >
               SIGNUP
             </button>
@@ -86,6 +87,8 @@
           <div class="option-for-cateory">
             <select
               id="search-bar-filter"
+              onclick="search()"
+              onchange="search()"
             >
               <option value="all">all</option>
               <option value="completed">completed</option>
@@ -102,7 +105,7 @@
               <i class="fa-solid fa-plus add-task-icon"></i>
               New Task
             </button>
-            <button id="signout-button " >
+            <button id="signout-button " onclick="signout()">
               <i class="fa-solid fa-right-from-bracket"></i>Sign out
             </button>
           </div>
@@ -117,6 +120,7 @@
                   type="search"
                   id="search-bar"
                   placeholder="SEARCH"
+                  oninput="search()"
                 />
               </div>
               <div class="date-sort-wrapper">
@@ -135,7 +139,7 @@
                 <i class="fa-solid fa-plus add-task-icon"></i>
                 New Task
               </button>
-              <button id="signout-button " >
+              <button id="signout-button " onclick="signout()">
                 <i class="fa-solid fa-right-from-bracket"></i>Sign out
               </button>
             </div>
@@ -175,6 +179,7 @@
                 <button
                 class="enter-event"
                 type="submit"
+                onclick="addTask()"
                 id="add-task-btn"
               >
                 add task
