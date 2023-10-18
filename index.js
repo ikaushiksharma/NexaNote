@@ -32,15 +32,12 @@ const editTaskPanel = document.getElementById("edit-task");
 let sortTaskbydate = document.getElementById("sort-task");
 sortTaskbydate.value = "none";
 duedateTrigger.onclick = () => {
-  console.log("triggering");
   duedateTrigger.classList.toggle("color-change");
   if (sortTaskbydate.value == "date") {
     sortTaskbydate.value = "none";
   } else {
-    console.log("date");
     sortTaskbydate.value = "date";
   }
-  console.log(sortTaskbydate.value);
   search();
 };
 closeLoginSignup.onclick = () => {
@@ -70,7 +67,6 @@ document.querySelectorAll(".add-task-button")[0].addEventListener("click", () =>
     AddTaskSection.style.width = "100%";
     document.getElementById("sidebar").classList.remove("left");
   }
-  console.log("add task click");
   AddTaskSection.style.right = "0";
   closePanel.style.display = "block";
 });
@@ -84,13 +80,11 @@ document.querySelectorAll(".add-task-button")[1].addEventListener("click", () =>
     AddTaskSection.style.width = "100%";
     document.getElementById("sidebar").classList.remove("left");
   }
-  console.log("add task click");
   AddTaskSection.style.right = "0";
   closePanel.style.display = "block";
 });
 
 closediv.onclick = () => {
-  console.log("close");
   signupLoginPage.style.right = "-100%";
   closediv.style.right = "-100%";
 };
@@ -199,7 +193,6 @@ editstudy.onclick = () => {
 };
 
 all.onclick = () => {
-  console.log("all");
   removefromall();
   filtertasks("all");
   all.classList.add("out");
@@ -306,7 +299,6 @@ function stateBasedSignupLogin(state = "signup") {
           return false;
         }
       });
-      console.log(user);
 
       if (username != "" && password != "" && !user) {
         users.push({
@@ -315,7 +307,6 @@ function stateBasedSignupLogin(state = "signup") {
         });
         localStorage.setItem("users", JSON.stringify(users));
         currentLoginUser = username;
-        console.log(password);
         document.getElementById("task-manager-section").style.display = "flex";
         authSection.style.display = "none";
         document.querySelector(".bg-img").src = "";
@@ -333,12 +324,10 @@ function stateBasedSignupLogin(state = "signup") {
           return false;
         }
       });
-      console.log(findUser);
 
       if (findUser) {
         if (findUser.password == password) {
           currentLoginUser = username;
-          console.log(password);
           document.getElementById("task-manager-section").style.display = "flex";
           authSection.style.display = "none";
           document.querySelector(".bg-img").src = "";
@@ -359,12 +348,10 @@ function stateBasedSignupLogin(state = "signup") {
 }
 
 function login() {
-  console.log("login");
   stateBasedSignupLogin("login");
 }
 
 function signup() {
-  console.log("signup");
   stateBasedSignupLogin("signup");
 }
 
@@ -445,12 +432,10 @@ function addTask() {
       status: false,
     };
     let catry = getcategoryarray();
-    console.log(catry);
     task.category = catry.map((item) => item);
     AddTaskSection.style.right = "-100%";
     let tasks = getTasks();
     tasks.push(task);
-    console.log(tasks);
     localStorage.setItem(`${currentLoginUser}-tasks`, JSON.stringify(tasks));
   } else {
     popMessageWindow("Data invalid or Not Entered");
@@ -465,19 +450,16 @@ function addTask() {
 
 closePanel.style.display = "none";
 closePanel.addEventListener("click", () => {
-  console.log("enter");
   document.getElementById("sidebar").classList.remove("left");
   AddTaskSection.style.right = "-100%";
   closePanel.style.display = "none";
 });
 document.addEventListener("keydown", (event) => {
-  console.log(event.key);
   if (event.key === "Escape") {
     signupLoginPage.style.right = "-100%";
     AddTaskSection.style.right = "-100%";
     messagePop.innerHTML = "";
     closediv.style.right = "-100%";
-    console.log("chal ra h");
     document.getElementById("sidebar").classList.remove("left");
   } else {
     if (event.key == "/") {
@@ -519,13 +501,11 @@ function search() {
   let filterType = document.getElementById("search-bar-filter").value;
   let sortType = document.getElementById("sort-task").value;
   let tasks = getTasks();
-  console.log(searchBarValue);
 
   searchedtasks = tasks.filter((task) => {
     return task.title.toLowerCase().includes(searchBarValue.toLowerCase());
   });
 
-  console.log(searchedtasks);
   searchedtasks.sort(function (a, b) {
     switch (sortType) {
       case "date":
@@ -549,7 +529,6 @@ function filtertasks(val) {
 }
 
 function loadToUi(parsedData, type = "all") {
-  console.log(parsedData);
   loadDateOrNav();
   if (window.innerWidth <= 1024) {
     document.getElementById("sidebar").classList.remove("left");
@@ -639,7 +618,6 @@ function loadToUi(parsedData, type = "all") {
         }
         return category;
       }
-      console.log(task.category);
       let categoriesArray = task.category;
 
       if (categoriesArray.includes("work")) {
@@ -724,7 +702,6 @@ function loadToUi(parsedData, type = "all") {
       let stateContainer = document.createElement("div");
       stateContainer.style.cursor = "pointer";
       stateContainer.onclick = () => {
-        console.log(task.id);
         changeStatus(task.id);
       };
       stateContainer.classList.add("state");
@@ -740,7 +717,6 @@ function loadToUi(parsedData, type = "all") {
       userWrapper.appendChild(stateContainer);
       userCon.appendChild(userWrapper);
       title.onclick = () => {
-        console.log("click working");
         editTaskPanel.style.right = "0%";
         let editTitle = document.querySelector(".edit-title");
         let editdesc = document.querySelector(".edit-desc");
@@ -772,7 +748,6 @@ function loadToUi(parsedData, type = "all") {
         let save = document.querySelector(".save");
         save.onclick = () => {
           let alltasks = getTasks();
-          console.log(task);
           alltasks.map((item) => {
             if (item.id == task.id) {
               item.title = editTitle.innerHTML;
@@ -818,12 +793,10 @@ function loadToUi(parsedData, type = "all") {
       }
 
       addOrNot(listEle, taskContainer, task);
-      console.log(state);
     });
   }
 
   if (state == 0) {
-    console.log("no data");
     listEle.innerHTML = `<img src="./img/no.png" class="no-data" />`;
   }
 }
