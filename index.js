@@ -51,7 +51,6 @@ let currentLoginUser = "";
 let switchStateUser = true;
 savecategoryarray();
 
-// show();
 search();
 
 const useridEle = document.getElementById("username");
@@ -284,7 +283,6 @@ function popMessageWindow(message) {
   }
 
   setTimeout(() => {
-    // newpopmessage.style.display = "none"
     messagePop.removeChild(newpopmessage);
   }, 4000);
 }
@@ -398,7 +396,6 @@ function show() {
 
 function deleteTask(id) {
   let tasks = getTasks();
-  //   console.log(index, "   ", tasks[index]);
   tasks = tasks.filter((item) => {
     if (item.id == id) {
       return false;
@@ -466,11 +463,6 @@ function addTask() {
   search();
 }
 
-// document.querySelector(".enter-event").addEventListener("keypress", function (event) {
-//     if (event.key === "Enter") {
-//       addTask();
-//     }
-//   });
 closePanel.style.display = "none";
 closePanel.addEventListener("click", () => {
   console.log("enter");
@@ -508,7 +500,6 @@ function sortTask() {
     switch (sortType) {
       case "date":
         let temp = new Date(a.due) - new Date(b.due);
-        // console.log(temp);
         return temp;
       case "completed":
         return b.status - a.status;
@@ -524,11 +515,9 @@ function sortTask() {
 }
 
 function search() {
-  //   console.log("running");
   let searchBarValue = document.getElementById("search-bar").value;
   let filterType = document.getElementById("search-bar-filter").value;
   let sortType = document.getElementById("sort-task").value;
-  //   console.log(filterType);
   let tasks = getTasks();
   console.log(searchBarValue);
 
@@ -541,7 +530,6 @@ function search() {
     switch (sortType) {
       case "date":
         let temp = new Date(a.due) - new Date(b.due);
-        // console.log(temp);
         return temp;
       case "completed":
         return b.status - a.status;
@@ -569,16 +557,6 @@ function loadToUi(parsedData, type = "all") {
   listEle.innerHTML = "";
   let state = 0;
 
-  //   let data = localStorage.getItem("tasks");
-  //   parsedData = JSON.parse(data) || [];
-
-  // const workTaskList = document.createElement("div");
-  // workTaskList.classList.add("task-list-category-container");
-  // const personalTaskList = document.createElement("div");
-  // personalTaskList.classList.add("task-list-category-container");
-  // const studyTaskList = document.createElement("div");
-  // studyTaskList.classList.add("task-list-category-container");
-
   if (parsedData.length > 0) {
     parsedData.forEach((task, index) => {
       let taskContainer = document.createElement("div");
@@ -588,7 +566,6 @@ function loadToUi(parsedData, type = "all") {
       titleDropCon.classList.add("title-drop-con");
       let title = document.createElement("div");
       title.classList.add("title");
-      // title.innerHTML='<i class="fa-solid fa-candy-cane candy"></i>'
       title.innerHTML = '<i class="fa-solid fa-thumbtack candy"></i>';
       title.appendChild(document.createTextNode(task.title));
 
@@ -611,19 +588,6 @@ function loadToUi(parsedData, type = "all") {
       dots.appendChild(createdot());
       dots.appendChild(createdot());
 
-      // <div class="menu">
-      //     <div class="dots">
-      //         <div class="dot"></div>
-      //         <div class="dot"></div>
-      //         <div class="dot"></div>
-      //     </div>
-      //     <div class="dropdown">
-      //         <a href="#">Item 1</a>
-      //         <a href="#">Item 2</a>
-      //         <a href="#">Item 3</a>
-      //     </div>
-      // </div>
-
       let deleteButton = document.createElement("button");
       deleteButton.appendChild(document.createTextNode("delete task"));
       deleteButton.classList.add("delete-button");
@@ -639,7 +603,6 @@ function loadToUi(parsedData, type = "all") {
         statusButton.appendChild(document.createTextNode("incompleted"));
       }
       statusButton.onclick = () => {
-        //   console.log("clicked");
         changeStatus(task.id);
         sortTask();
       };
@@ -745,7 +708,6 @@ function loadToUi(parsedData, type = "all") {
       dateCon.appendChild(timericon);
       dateCon.appendChild(date);
 
-      // console.log(day,currentMonth,due.getDate());
       let userCon = document.createElement("div");
       userCon.classList.add("user-con");
       let usrName = document.createElement("div");
@@ -839,7 +801,6 @@ function loadToUi(parsedData, type = "all") {
       taskContainer.appendChild(dateCon);
       taskContainer.appendChild(userCon);
       function addOrNot(list, taskcon, task) {
-        //   console.log(type);
         if (type == "all") {
           state++;
           list.appendChild(taskcon);
@@ -856,22 +817,8 @@ function loadToUi(parsedData, type = "all") {
         }
       }
 
-      // switch (task.category) {
-      //   case "work":
-      //     addOrNot(workTaskList, taskContainer, task);
-      //     break;
-      //   case "personal":
-      //     addOrNot(personalTaskList, taskContainer, task);
-      //     break;
-      //   case "study":
-      //     addOrNot(studyTaskList, taskContainer, task);
-      //     break;
-      // }
-
       addOrNot(listEle, taskContainer, task);
       console.log(state);
-
-      // listEle.appendChild(taskContainer)
     });
   }
 
@@ -879,10 +826,6 @@ function loadToUi(parsedData, type = "all") {
     console.log("no data");
     listEle.innerHTML = `<img src="./img/no.png" class="no-data" />`;
   }
-
-  // listEle.appendChild(workTaskList);
-  // listEle.appendChild(personalTaskList);
-  // listEle.appendChild(studyTaskList);
 }
 
 function getTasks() {
