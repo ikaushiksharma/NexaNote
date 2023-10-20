@@ -283,7 +283,10 @@ function popMessageWindow(message) {
 function stateBasedSignupLogin(state = "signup") {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
-
+  if (username === "" || password === "") {
+    popMessageWindow("Field Empty");
+    return;
+  }
   if (!localStorage.getItem("users")) {
     localStorage.setItem("users", JSON.stringify([]));
   }
@@ -292,14 +295,13 @@ function stateBasedSignupLogin(state = "signup") {
 
   switch (state) {
     case "signup":
-      let user = users.find(function (user, index, arr) {
+      let user = users.find(function (user) {
         if (user.username == username) {
           return true;
         } else {
           return false;
         }
       });
-
       if (username != "" && password != "" && !user) {
         users.push({
           username,
@@ -568,7 +570,7 @@ function loadToUi(parsedData, type = "all") {
       dots.appendChild(createdot());
 
       let deleteButton = document.createElement("button");
-      deleteButton.appendChild(document.createTextNode("delete task"));
+      deleteButton.appendChild(document.createTextNode("Delete Task"));
       deleteButton.classList.add("delete-button");
       deleteButton.classList.add("drop-button");
       deleteButton.onclick = () => deleteTask(task.id);
@@ -577,9 +579,9 @@ function loadToUi(parsedData, type = "all") {
       statusButton.classList.add("status-button");
       statusButton.classList.add("drop-button");
       if (task.status == true) {
-        statusButton.appendChild(document.createTextNode("completed"));
+        statusButton.appendChild(document.createTextNode("Mark as Incompleted"));
       } else {
-        statusButton.appendChild(document.createTextNode("incompleted"));
+        statusButton.appendChild(document.createTextNode("Mark as Completed"));
       }
       statusButton.onclick = () => {
         changeStatus(task.id);
@@ -696,7 +698,7 @@ function loadToUi(parsedData, type = "all") {
       userWrapper.classList.add("user-wrapper");
       let userAvatarNameWrapper = document.createElement("div");
       userAvatarNameWrapper.classList.add("userAvatarNameWrapper");
-      userAvatarNameWrapper.innerHTML = '<img src="./img/avatar.png" class="avatar" />';
+      userAvatarNameWrapper.innerHTML = '<img src="./assets/img/avatar.png" class="avatar" />';
       userAvatarNameWrapper.appendChild(usrName);
       userWrapper.appendChild(userAvatarNameWrapper);
       let stateContainer = document.createElement("div");
@@ -797,7 +799,7 @@ function loadToUi(parsedData, type = "all") {
   }
 
   if (state == 0) {
-    listEle.innerHTML = `<img src="./img/no.png" class="no-data" />`;
+    listEle.innerHTML = `<img src="./assets/img/no.png" class="no-data" />`;
   }
 }
 
