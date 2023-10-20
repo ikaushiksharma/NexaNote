@@ -55,26 +55,16 @@ Nexa Note offers convenient sorting and filtering features to help you manage yo
 ### Task Sorting
 
 - **Sort by Due Date:** Quickly organize your tasks by their due dates, helping you prioritize and complete those with impending deadlines.
-- **Sort by Importance:** Arrange tasks based on their importance level, ensuring that you address high-priority items first.
-
+- 
 ### Task Filtering
 
-- **Filter by Status:** Easily view completed or incomplete tasks separately, allowing you to assess your progress and uncompleted work.
-- **Custom Search:** Use the search bar to find specific tasks based on keywords or titles, making it simple to locate particular items in your task list.
-
-### Note Filtering
-
-- **Custom Search:** Similar to task search, you can search for specific notes using keywords or titles, ensuring you can quickly retrieve the information you need.
+- **Custom Search:** Use the search bar to find specific tasks based on title, making it simple to locate particular items in your task list.
 
 These sorting and filtering features empower you to stay organized, find information quickly, and manage your tasks and notes efficiently.
 
 ## Contributing
 
-We welcome contributions to Nexa Note! If you have suggestions, improvements, or bug fixes, please feel free to submit a pull request. Before contributing, please review our [Contributing Guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+We welcome contributions to Nexa Note! If you have suggestions, improvements, or bug fixes, please feel free to submit a pull request.
 
 ## Contact
 
