@@ -337,8 +337,8 @@ function loadToUi(parsedData, type = "all") {
         work.classList.remove("highlight-cat");
         personal.classList.remove("highlight-cat");
         study.classList.remove("highlight-cat");
-        savecategoryarray();
-        savecategoryarray(task.category);
+        saveCategoryArray();
+        saveCategoryArray(task.category);
         task.category.forEach((item) => {
           switch (item) {
             case "work":
@@ -359,7 +359,7 @@ function loadToUi(parsedData, type = "all") {
             if (item.id == task.id) {
               item.title = editTitle.innerHTML;
               item.desc = editdesc.innerHTML;
-              item.category = getcategoryarray();
+              item.category = getCategoryArray();
             }
           });
 
@@ -417,7 +417,7 @@ function show() {
   loadToUi(tasks);
 }
 
-function loaddate() {
+function loadDate() {
   const date = new Date();
   let day = "";
   switch (date.getDay()) {
@@ -506,7 +506,7 @@ function search() {
   loadToUi(searchedtasks, filterType);
 }
 
-function filtertasks(val) {
+function filterTasks(val) {
   document.getElementById("search-bar-filter").value = val;
   document.getElementById("search-bar-filter").click();
 }
@@ -517,13 +517,13 @@ function saveTasks() {
 function creatcategoryarray() {
   localStorage.setItem("categoriesArray", JSON.stringify([]));
 }
-function getcategoryarray() {
+function getCategoryArray() {
   if (!JSON.parse(localStorage.getItem("categoriesArray"))) {
     localStorage.setItem("categoriesArray", JSON.stringify([]));
   }
   return JSON.parse(localStorage.getItem("categoriesArray")) || [];
 }
-function savecategoryarray(data = []) {
+function saveCategoryArray(data = []) {
   localStorage.setItem("categoriesArray", JSON.stringify(data));
 }
 
@@ -532,7 +532,7 @@ function loadDateOrNav() {
   if (window.innerWidth <= 1024) {
     loadNavBarHam();
   } else {
-    loaddate();
+    loadDate();
   }
   let child = document.querySelector(".sidebar-signout-addtask");
 }
@@ -587,11 +587,13 @@ function addTask() {
     inputTaskTitle.value &&
     inputTaskDesc.value &&
     dueDate.value &&
-    getcategoryarray().length > 0
+    getCategoryArray().length > 0
   ) {
-    dueDate.value < Date.now();
-    popMessageWindow("Date Invalid");
-    return;
+    if (dueDate.value < Date.now()) {
+      popMessageWindow("Date Invalid");
+      return;
+    }
+
     closePanel.style.display = "none";
 
     let Alltasks = getTasks();
@@ -608,7 +610,7 @@ function addTask() {
       due: dueDate.value,
       status: false,
     };
-    let catry = getcategoryarray();
+    let catry = getCategoryArray();
     task.category = catry.map((item) => item);
     AddTaskSection.style.right = "-100%";
     let tasks = getTasks();
@@ -617,9 +619,9 @@ function addTask() {
   } else {
     popMessageWindow("Data invalid or Not Entered");
   }
-  savecategoryarray();
-  removefromall();
-  filtertasks("all");
+  saveCategoryArray();
+  removeFromAll();
+  filterTasks("all");
   all.classList.add("out");
   all.children[0].children[0].classList.add("color-blue");
   search();
@@ -641,7 +643,7 @@ closeLoginSignup.onclick = () => {
 
 let currentLoginUser = "";
 let switchStateUser = true;
-savecategoryarray();
+saveCategoryArray();
 
 search();
 
@@ -703,7 +705,7 @@ loginButton.addEventListener("click", () => {
 
 all.classList.add("out");
 all.children[0].children[0].classList.add("color-blue");
-function removefromall() {
+function removeFromAll() {
   closePanel.style.display = "none";
   work.classList.remove("highlight-cat");
   personal.classList.remove("highlight-cat");
@@ -724,81 +726,81 @@ document.querySelector(".close-edit").addEventListener("click", () => {
 });
 
 work.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   work.classList.toggle("highlight-cat");
   if (categoriesArray.includes("work")) {
     categoriesArray.splice(categoriesArray.indexOf("work"), 1);
   } else {
     categoriesArray.push("work");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 personal.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   personal.classList.toggle("highlight-cat");
   if (categoriesArray.includes("personal")) {
     categoriesArray.splice(categoriesArray.indexOf("personal"), 1);
   } else {
     categoriesArray.push("personal");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 study.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   study.classList.toggle("highlight-cat");
   if (categoriesArray.includes("study")) {
     categoriesArray.splice(categoriesArray.indexOf("study"), 1);
   } else {
     categoriesArray.push("study");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 editwork.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   editwork.classList.toggle("highlight-cat");
   if (categoriesArray.includes("work")) {
     categoriesArray.splice(categoriesArray.indexOf("work"), 1);
   } else {
     categoriesArray.push("work");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 editpersonal.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   editpersonal.classList.toggle("highlight-cat");
   if (categoriesArray.includes("personal")) {
     categoriesArray.splice(categoriesArray.indexOf("personal"), 1);
   } else {
     categoriesArray.push("personal");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 editstudy.onclick = () => {
-  let categoriesArray = getcategoryarray();
+  let categoriesArray = getCategoryArray();
   editstudy.classList.toggle("highlight-cat");
   if (categoriesArray.includes("study")) {
     categoriesArray.splice(categoriesArray.indexOf("study"), 1);
   } else {
     categoriesArray.push("study");
   }
-  savecategoryarray(categoriesArray);
+  saveCategoryArray(categoriesArray);
 };
 
 all.onclick = () => {
-  removefromall();
-  filtertasks("all");
+  removeFromAll();
+  filterTasks("all");
   all.classList.add("out");
   all.children[0].children[0].classList.add("color-blue");
 };
 completedbutton.onclick = () => {
-  removefromall();
-  filtertasks("completed");
+  removeFromAll();
+  filterTasks("completed");
   completedbutton.classList.add("out");
   completedbutton.children[0].children[0].classList.add("color-blue");
 };
 incompletedbutton.onclick = () => {
-  removefromall();
-  filtertasks("incompleted");
+  removeFromAll();
+  filterTasks("incompleted");
   incompletedbutton.classList.add("out");
   incompletedbutton.children[0].children[0].classList.add("color-blue");
 };
